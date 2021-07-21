@@ -20,6 +20,10 @@ function MyApp({ Component, pageProps }) {
         <Link href='/about'>
           <a>About</a>
         </Link>
+        /{' '}
+        <Link href='/amp-stories'>
+          <a>Stories</a>
+        </Link>
       </p>
       <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
         <Component {...pageProps} key={router.route} />
