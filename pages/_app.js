@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useAmp } from 'next/amp'
 
 function handleExitComplete() {
   if (typeof window !== 'undefined') {
@@ -10,6 +11,10 @@ function handleExitComplete() {
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
+  const isAmp = useAmp()
+  if (isAmp) {
+    return <Component {...pageProps} key={router.route} />
+  }
   return (
     <>
       <p>
